@@ -508,3 +508,9 @@ def test_import_recursion(Script):
     path = get_example_dir('import-recursion', "cq_example.py")
     for c in Script(path=path).complete(3, 3):
         c.docstring()
+
+
+def test_stub_import_recursion(Script):
+    path = get_example_dir('issue2020', "example.py")
+    for name in Script(path=path).goto(3):
+        name.docstring()
